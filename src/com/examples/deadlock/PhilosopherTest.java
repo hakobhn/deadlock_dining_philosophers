@@ -4,13 +4,14 @@ import com.examples.deadlock.locks.PhilosopherWithLockImpl;
 
 public class PhilosopherTest {
     public static void main(String[] args) {
-        System.out.println("Initing philosophers...");
 
+        System.out.println("initializing forks...");
         Fork[] forks = new Fork[5];
         for (int i = 0; i < forks.length; i++) {
             forks[i] = new Fork(i, false);
         }
 
+        System.out.println("initializing philosophers...");
         Philosopher[] philosophers = new Philosopher[5];
         String[] philosopherNames = {"John", "Wallace", "Adam", "Sam", "Charles"};
 
@@ -20,7 +21,7 @@ public class PhilosopherTest {
         }
 
         for (int i = 0; i < philosophers.length; i++) {
-            System.out.println(philosophers[i].name + " is running...");
+            System.out.println(philosophers[i].name + " is starting...");
             philosophers[i].start();
         }
     }

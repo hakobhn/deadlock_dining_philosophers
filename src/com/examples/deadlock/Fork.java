@@ -2,6 +2,11 @@ package com.examples.deadlock;
 
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * Fork in standard synchronization implementation is used as simple objects
+ * and do not need to extend Lock class. number and isUsed fields just added
+ * for demonstration purpose.
+ */
 public class Fork extends ReentrantLock {
     private int number;
     private boolean isUsed;
