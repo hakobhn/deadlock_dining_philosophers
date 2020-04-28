@@ -11,6 +11,9 @@ public class PhilosopherStandartImpl extends Philosopher {
         this.name = name;
     }
 
+    /**
+     * Implementing process of eating using synchronization of critical sections: left aand right forks
+     */
     @Override
     public void eat() {
         synchronized (leftFork) {
@@ -19,15 +22,15 @@ public class PhilosopherStandartImpl extends Philosopher {
             synchronized (rightFork) {
                 System.out.println(name + " picked up right fork: " + rightFork.getNumber()+", used: "+rightFork.isUsed());
                 rightFork.setUsed(true);
-                System.out.println(name + " start to eating...");
+                System.out.println(name + " starting to eat...");
                 try {
                     Thread.sleep(sleep);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(name + " end to eating...");
-                leftFork.setUsed(false);
+                System.out.println(name + " finished to eat...");
                 rightFork.setUsed(false);
+                leftFork.setUsed(false);
             }
         }
     }

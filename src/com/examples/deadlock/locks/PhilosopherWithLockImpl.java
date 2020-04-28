@@ -13,6 +13,9 @@ public class PhilosopherWithLockImpl extends Philosopher {
         this.name = name;
     }
 
+    /**
+     * Implementing process of eating with lock mechanism
+     */
     @Override
     public void eat() {
 // Try to get the left fork
@@ -26,13 +29,13 @@ public class PhilosopherWithLockImpl extends Philosopher {
                     rightFork.setUsed(true);
                     try {
 // Got both forks. Eat now
-                        System.out.println(name + " start to eating...");
+                        System.out.println(name + " starting to eat...");
                         try {
                             Thread.sleep(sleep);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        System.out.println(name + " end to eating...");
+                        System.out.println(name + " finished to eat...");
                     } finally {
 // release the right fork
                         rightFork.unlock();

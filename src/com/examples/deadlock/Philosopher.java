@@ -8,16 +8,22 @@ public abstract class Philosopher extends Thread {
 
     public abstract void eat();
 
+    /**
+     * Process of thinking
+     */
     public void think() {
-        System.out.println(name + " start to thinking...");
+        System.out.println(name + " starting to think...");
         try {
             Thread.sleep(sleep);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(name + " end to thinking...");
+        System.out.println(name + " finished to think...");
     }
 
+    /**
+     * Sequentially eating and thinking
+     */
     @Override
     public void run() {
         while (true) {
